@@ -19,7 +19,7 @@ DroneModel.insertMany([
     {
         name: "Bumblebee",
         propellers: 6,
-        speed: 18
+        maxSpeed: 18
     },
     {
         name: "Megatron",

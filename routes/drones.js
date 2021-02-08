@@ -9,7 +9,7 @@ router.get('/drones', (req, res, next) => {
   // Iteration #2: List the drones
   DroneModel.find()
     .then((drones) => {
-      res.render('drones/list.hbs', {drones})
+      res.render('drones/list', {drones})
     })
     .catch((err) => {
       console.log("Find Drones error: ", err);
@@ -18,7 +18,7 @@ router.get('/drones', (req, res, next) => {
 
 router.get('/drones/create', (req, res, next) => {
   // Iteration #3: Add a new drone
-  res.render('drones/create-form.hbs')
+  res.render('drones/create-form')
 });
 
 router.post('/drones/create', (req, res, next) => {
@@ -49,7 +49,7 @@ router.get('/drones/:id/edit', (req, res, next) => {
 
   DroneModel.findById(id)
   .then((drone) => {
-      res.render('drones/update-form.hbs', {drone})
+      res.render('drones/update-form', {drone})
   })
   .catch(() => {
       console.log("something went wrong while getting a drone to edit route");
@@ -75,7 +75,7 @@ router.post('/drones/:id/edit', (req, res, next) => {
         })
 });
 
-router.get('/drones/:id/delete', (req, res, next) => {
+router.post('/drones/:id/delete', (req, res, next) => {
   // Iteration #5: Delete the drone
   let id = req.params.id
 
